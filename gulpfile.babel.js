@@ -95,6 +95,9 @@ gulp.task('copy:jquery', () =>
     .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
 );
 
+
+
+
 gulp.task('copy:license', () =>
   gulp.src('LICENSE.txt')
     .pipe(gulp.dest(dirs.dist))
@@ -126,6 +129,13 @@ gulp.task('copy:misc', () =>
   }).pipe(gulp.dest(dirs.dist))
 );
 
+
+gulp.task('copy:videojs', () =>
+  gulp.src(['node_modules/video.js/dist/video.min.js'])
+    .pipe(plugins().rename(`video.min.js`))
+    .pipe(gulp.dest(`${dirs.dist}/js/vendor`))
+);
+    
 gulp.task('copy:normalize', () =>
   gulp.src('node_modules/normalize.css/normalize.css')
     .pipe(gulp.dest(`${dirs.dist}/css`))
@@ -157,7 +167,8 @@ gulp.task(
     'copy:license',
     'copy:main.css',
     'copy:misc',
-    'copy:normalize'
+    'copy:normalize',
+    'copy:videojs'
   )
 );
 
