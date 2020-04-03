@@ -77,7 +77,6 @@
     "README.md"
   ],
   "dependencies": {
-    "video.js": "^7.7.5",
     "videojs-framebyframe": "^1.0.1"
   }
 }
