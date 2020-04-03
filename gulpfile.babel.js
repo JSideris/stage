@@ -147,14 +147,6 @@ gulp.task('modernizr', (done) => {
   });
 });
 
-gulp.task('lint:js', () =>
-  gulp.src([
-    `${dirs.src}/js/*.js`,
-    `${dirs.test}/*.js`
-  ]).pipe(plugins().eslint())
-    .pipe(plugins().eslint.failOnError())
-);
-
 // ---------------------------------------------------------------------
 // | Main tasks                                                        |
 // ---------------------------------------------------------------------
@@ -175,7 +167,7 @@ gulp.task(
 gulp.task(
   'build',
   gulp.series(
-    gulp.parallel('clean', 'lint:js'),
+    'clean',
     'copy',
     'modernizr'
   )
